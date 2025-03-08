@@ -1,21 +1,17 @@
 from abc import ABC, abstractmethod
 
-
 class PaymentStrategy(ABC):
     @abstractmethod
     def pay(self):
         pass
 
-
 class PaypalPayment(PaymentStrategy):
     def pay(self, amount):
         print("Paid amount via paypal", amount)
 
-
 class StripePayment(PaymentStrategy):
     def pay(self, amount):
         print("Paid amount via stripe", amount)
-
 
 class PaymentProcessor:
     def __init__(self, paymentStrategy: PaymentStrategy):
